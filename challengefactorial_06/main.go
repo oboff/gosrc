@@ -1,4 +1,3 @@
-// main
 package main
 
 import (
@@ -63,16 +62,16 @@ func main() {
 	for i := 1; i < 1001; i++ {
 		nums = append(nums, i%13)
 	}
-	fmt.Println(len(nums))
 
-	g := gen(5, 4, 3, 2, 1)
-	c1 := factc(g)
-	c2 := factc(g)
-
-	total := 1
-	for n := range merge(c1, c2) {
-		fmt.Println(n)
-		total *= n
+	g := gen(nums...)
+	chans := []chan int{}
+	for i := 1; i < 8; i++ {
+		chans = append(chans, factc(g))
 	}
-	fmt.Println(total)
+
+	index := 1
+	for n := range merge(chans...) {
+		fmt.Println(index, ":", n)
+		index++
+	}
 }
