@@ -23,4 +23,8 @@ func main() {
 	fmt.Println(b)
 	fmt.Printf("%#v\n", c)
 	fmt.Printf("%#v\n", d)
+
+	f := 10
+	g := &f
+	fmt.Println(g)
 }
