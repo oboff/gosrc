@@ -2,12 +2,16 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"log"
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
+
+var x bytes.Buffer
 
 func main() {
 
@@ -34,4 +38,12 @@ func main() {
 
 	a, _ := strconv.ParseFloat("23.23", 64)
 	fmt.Printf("%f\n", a)
+
+	pow := make([]int, 10)
+	for i := range pow {
+		pow[i] = 1 << uint(i)
+		fmt.Println(pow[i])
+	}
+
+	time.Tick()
 }
